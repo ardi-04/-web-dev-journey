@@ -12,25 +12,25 @@
         <div class="font-bold">Ruel Dave Timbang</div>
         <div >
             <ul class="flex flex-row justify-center gap-10 list-none">
-                <li class="px-7 py-1 rounded hover:bg-blue-600 transition cursor-pointer">HOME</li>
-                <li class="px-7 py-1 rounded hover:bg-blue-600 transition cursor-pointer">ABOUT</li>
-                <li class="px-7 py-1 rounded hover:bg-blue-600 transition cursor-pointer">PROJECTS</li>
+                <li  class="nav-link px-7 py-1 rounded hover:bg-blue-600 transition cursor-pointer">HOME</li>
+                <li  class="nav-link px-7 py-1 rounded hover:bg-blue-600 transition cursor-pointer">ABOUT</li>
+                <li  class="nav-link px-7 py-1 rounded hover:bg-blue-600 transition cursor-pointer">PROJECTS</li>
             </ul>
         </div>
     </nav>
 
-    <main class="flex flex-col justify-center items-center h-screen bg-gray-900 text-white  gap-4 text-center">
+    <main id="home" class="flex flex-col justify-center items-center h-screen bg-gray-900 text-white  gap-4 text-center">
         <h1 class="text-5xl font-bold ">MY PRACTICE THING BLAH BLAH BLAH</h1>
         <p class="text-gray-400 text-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam numquam sunt totam expedita dicta, autem voluptates, sed animi libero consequuntur voluptatum obcaecati enim minima molestias soluta sequi aspernatur ex facere!</p>
         <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-blue-600 transition">CLICK ME</button>
     </main>
 
-    <section class="bg-gray-800 text-white px-16 py-20">
+    <section id="about" class="bg-gray-800 text-white px-16 py-20">
         <h1 class="text-3xl font-bold mb-4">ABOUT ME</h1>
         <p class="text-gray-400 text-lg max-w-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque labore voluptatem perspiciatis nesciunt inventore ad ipsa unde nulla facere nostrum! Dolorem quod sequi quas dicta eos deserunt tempore iste consectetur?</p>
     </section>
 
-    <section class="bg-gray-900 text-white px-16 py-20">
+    <section id="projects" class="bg-gray-900 text-white px-16 py-20">
         <h1 class="text-3xl font-bold mb-10">PROJECTS</h1>
         <div class="grid grid-cols-3 gap-6">
             <div class="bg-gray-800 rounded-lg p-6 hover:bg-gray-600 transition">
@@ -56,5 +56,26 @@
     <footer class="bg-black text-gray-400 text-center py-6">
         <p>© 2025 Ruel Dave Timbang. All rights reserved.</p>
     </footer>
+
+    <script>
+        const navHome = document.querySelector('#home')
+        const navAbout = document.querySelector('#about')
+        const navProjects = document.querySelector('#projects')
+
+        const links = document.querySelectorAll('.nav-link')
+        const sections =[navHome, navAbout, navProjects]
+
+        links.forEach(function(link, index){
+            link.addEventListener('click', function(){
+                links.forEach(function(l){l.classList.remove('bg-blue-600') })
+                link.classList.add('bg.blue-600')
+                sections[index].scrollIntoView({behavior:'smooth'})
+            })
+        })
+
+    </script>
 </body>
+
+
+
 </html>
